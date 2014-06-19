@@ -17,19 +17,6 @@ def hamming(strand_1, strand_2)
   hamming_code
 end
 
-
-
-# def hamming(strand_1, strand_2)
-#   counter = 0
-#
-#   strand_1.zip(strand_2).each do |item1, item2|
-#     if item1!= item2
-#       counter = counter + 1
-#     end
-#     counter
-#   end
-# end
-
 check("Hamming distance between identical strands",
       hamming("A", "A") == 0)
 
