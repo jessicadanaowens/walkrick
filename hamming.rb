@@ -4,18 +4,21 @@ require_relative "testing_library"
 require_relative "testing_library"
 
 def hamming(strand_1, strand_2)
-  hamming_code = 0
-  string_index = 0
+  
+ if strand_1.length <= strand_2.length
+   shortest = strand_1.length - 1
+ else
+   shortest = strand_2.length - 1
+ end
 
-  strand_1.each_char do |character|
-    unless character == nil || string_index == nil
-      if character != strand_2[string_index]
-        hamming_code += 1
-      end
-      string_index += 1
+ hamming = 0
+
+  (0..shortest).each do |index|
+    if strand_1[index] != strand_2[index]
+      hamming += 1
     end
   end
-  hamming_code
+  hamming
 end
 
 
