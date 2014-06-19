@@ -1,21 +1,24 @@
 require_relative "testing_library"
 
+
+require_relative "testing_library"
+
 def hamming(strand_1, strand_2)
   hamming_code = 0
   string_index = 0
 
-  shorter_strand = strand_1.length > strand_2.length ? strand_2 : strand_1
-
-  shorter_strand.each_char do |character|
-    if character != strand_2[string_index]
-      hamming_code += 1
+  strand_1.each_char do |character|
+    unless character == nil || string_index == nil
+      if character != strand_2[string_index]
+        hamming_code += 1
+      end
+      string_index += 1
     end
-
-    string_index += 1
   end
-
   hamming_code
 end
+
+
 
 check("Hamming distance between identical strands",
       hamming("A", "A") == 0)
